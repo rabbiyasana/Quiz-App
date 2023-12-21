@@ -1,6 +1,4 @@
 text-center{
-    /* justify-content: center;
-    align-items: center;  */
     text-align: center;
 }
 .centered{
@@ -8,6 +6,16 @@ text-center{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.main{
+    background-image: url("");
+}
+.center{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    right: 20%;
+    padding: 100px 0px;
 }
 .box{
     width: 40%;
@@ -20,7 +28,7 @@ text-center{
     box-shadow:0px 0px 10px 0px #fff;
    
 }
-.box > a{
+.box > a, .submit_button{
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -29,4 +37,9 @@ text-center{
     cursor: pointer;
     font-size: 16px;
     text-decoration: none;
+}
+.submit_button{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
 }

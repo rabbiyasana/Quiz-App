@@ -146,11 +146,44 @@ for (let q in questions) {
 
   const optionsDiv = document.createElement("div");
   optionsDiv.innerHTML = `
-    <label><input type="radio" name="option${q}" value="option1"> ${que.optionA}</label><br>
-    <label><input type="radio" name="option${q}" value="option2"> ${que.optionB}</label><br>
-    <label><input type="radio" name="option${q}" value="option3"> ${que.optionC}</label><br>
-    <label><input type="radio" name="option${q}" value="option4"> ${que.optionD}</label><br>
-  `;
+  <label><input type="radio" name="option${q}" value="${que.optionA}" required> ${que.optionA}</label><br>
+  <label><input type="radio" name="option${q}" value="${que.optionB}"> ${que.optionB}</label><br>
+  <label><input type="radio" name="option${q}" value="${que.optionC}"> ${que.optionC}</label><br>
+  <label><input type="radio" name="option${q}" value="${que.optionD}"> ${que.optionD}</label><br>
+`;
 
   main_div.appendChild(optionsDiv);
 }
+let score = 0;
+const submit_button = document.createElement("button");
+submit_button.innerText = "Submit";
+submit_button.className = "submit_button";
+main_div.appendChild(submit_button);
+
+submit_button.onclick = function () {
+  let selectAll = true;
+  for (let q in questions) {
+    const answer = document.querySelector(`input[name="option${q}"]:checked`);
+    if (!answer) {
+      selectAll = false;
+      break;
+    }
+    if (answer && answer.value == questions[q].answer) {
+      score = score + 1;
+      `<h1>Your total score are: ${score} out of ${questions.length}</h1>`;
+    }
+  }
+  if (selectAll) {
+    const resultDisplay = document.createElement("h1");
+    resultDisplay.textContent = `Your total score is: ${score} out of ${questions.length}`;
+    main_div.appendChild(resultDisplay);
+  }
+  for (let q in questions) {
+    const radioButtons = document.querySelectorAll(
+      `input[name="option${q}"]:checked`
+    );
+    radioButtons.forEach((radio) => {
+      radio.checked = false;
+    });
+  }
+};

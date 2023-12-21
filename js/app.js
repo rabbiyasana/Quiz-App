@@ -134,10 +134,23 @@ const questions = [
     answer: "In the beginning",
   },
 ];
-for (q in questions) {
-  console.log(questions[q]);
-  let question_tag = document.getElementById("question");
-  let optionA_tag = document.getElementById("");
-  que = questions[q];
-  question_tag.innerText = que.question;
+let main_div = document.getElementById("question");
+
+for (let q in questions) {
+  let que = questions[q];
+
+  const question_div = document.createElement("div");
+  question_div.innerText = que.question;
+
+  main_div.appendChild(question_div);
+
+  const optionsDiv = document.createElement("div");
+  optionsDiv.innerHTML = `
+    <label><input type="radio" name="option${q}" value="option1"> ${que.optionA}</label><br>
+    <label><input type="radio" name="option${q}" value="option2"> ${que.optionB}</label><br>
+    <label><input type="radio" name="option${q}" value="option3"> ${que.optionC}</label><br>
+    <label><input type="radio" name="option${q}" value="option4"> ${que.optionD}</label><br>
+  `;
+
+  main_div.appendChild(optionsDiv);
 }

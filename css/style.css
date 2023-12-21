@@ -1,3 +1,6 @@
+*{
+    margin: 0%;
+}
 text-center{
     text-align: center;
 }
@@ -8,7 +11,11 @@ text-center{
     transform: translate(-50%, -50%);
 }
 .main{
-    background-image: url("");
+    background-image: url("/images/photo-1495422964407-28c01bf82b0d.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    height: 100vh;
 }
 .center{
     position: absolute;
@@ -18,6 +25,7 @@ text-center{
     padding: 100px 0px;
 }
 .box{
+    background-color: #f2f2f2;
     width: 40%;
     height: 30%;
     border: 2px solid #f2f2f2;
